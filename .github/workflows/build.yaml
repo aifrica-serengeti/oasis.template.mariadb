@@ -18,8 +18,8 @@ jobs:
       # 이미지 태깅 추가
       - name: Set Image Registry and Name Based on Branch  
         run: |
-          echo "MARIADB_IMAGE=harbor.serengeti.app/adminstrator2/67a0b760-bf98-4c87-8869-16797db74cf2" >> $GITHUB_ENV  
-          
+          echo "MARIADB_IMAGE=harbor.serengeti.app/administrator2/67a0b760-bf98-4c87-8869-16797db74cf2" >> $GITHUB_ENV  
+          echo "HARBOR_DOMAIN=harbor.serengeti.app" >> $GITHUB_ENV  
       - name: Tag image for Harbor
         run: docker tag mariadb:latest ${{ env.MARIADB_IMAGE }}:latest
         
@@ -27,7 +27,7 @@ jobs:
       - name: Log in to Harbor
         uses: docker/login-action@v2
         with:
-          registry: harbor.serengeti.app
+          registry: ${{ env.HARBOR_DOMAIN }}
           username: admin
           password: Savana12345
 
