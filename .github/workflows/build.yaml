@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: serengeti-max
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -22,8 +22,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: harbor.serengeti.app
-          username: ${{ secrets.HARBOR_USERNAME }}
-          password: ${{ secrets.HARBOR_PASSWORD }}
+          username: admin
+          password: Savana12345
 
       - name: Push image to Harbor
         run: docker push harbor.serengeti.app/oasis/my-image:latest
