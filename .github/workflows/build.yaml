@@ -15,9 +15,15 @@ jobs:
       - name: Pull image from Docker Hub
         run: docker pull mariadb:latest
 
+      # 이미지 태깅 추가
+      - name: Set Image Registry and Name Based on Branch  
+        run: |
+          echo "MARIADB_IMAGE=harbor.serengeti.app/adminstrator2/67a0b760-bf98-4c87-8869-16797db74cf2" >> $GITHUB_ENV  
+          
       - name: Tag image for Harbor
-        run: docker tag mariadb:latest harbor.serengeti.app/administrator2/67a0b760-bf98-4c87-8869-16797db74cf2:latest
-
+        run: docker tag mariadb:latest ${{ env.MARIADB_IMAGE }}:latest
+        
+      
       - name: Log in to Harbor
         uses: docker/login-action@v2
         with:
@@ -26,4 +32,4 @@ jobs:
           password: Savana12345
 
       - name: Push image to Harbor
-        run: docker push harbor.serengeti.app/administrator2/67a0b760-bf98-4c87-8869-16797db74cf2:latest
+        run: docker push  ${{ env.MARIADB_IMAGE }}:latest
