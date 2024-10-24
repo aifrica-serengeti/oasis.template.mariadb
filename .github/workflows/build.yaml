@@ -16,7 +16,7 @@ jobs:
         run: docker pull mariadb:latest
 
       - name: Tag image for Harbor
-        run: docker tag mariadb:latest harbor.serengeti.app/oasis/my-image:latest
+        run: docker tag mariadb:latest harbor.serengeti.app/administrator2/67a0b760-bf98-4c87-8869-16797db74cf2:latest
 
       - name: Log in to Harbor
         uses: docker/login-action@v2
@@ -26,4 +26,4 @@ jobs:
           password: Savana12345
 
       - name: Push image to Harbor
-        run: docker push harbor.serengeti.app/oasis/my-image:latest
+        run: docker push harbor.serengeti.app/administrator2/67a0b760-bf98-4c87-8869-16797db74cf2:latest
