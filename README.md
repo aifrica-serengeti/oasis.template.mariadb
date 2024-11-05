@@ -4,7 +4,7 @@
 
 ## 빠른 참조
 
-- **유지 관리 **
+- **유지 관리**
   [MariaDB Foundation](https://mariadb.org), [MariaDB plc](https://mariadb.com),[커뮤니티](https://mariadb.org/community/)
 
 - **도움을 받을 수 있는 곳**
